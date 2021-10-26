@@ -36,9 +36,16 @@ def your_Score(score):
     screen.blit(value, [0,0])
 
 def our_snake(snake_block, snake_list):
+    red_square = True
+    
     for x in snake_list:
-        pygame.draw.rect(screen, black, [x[0], x[1], snake_block, snake_block])
-
+        if red_square:
+            pygame.draw.rect(screen, red, [x[0], x[1], snake_block, snake_block])
+            red_square = False
+        else:
+            pygame.draw.rect(screen, black, [x[0], x[1], snake_block, snake_block])
+            red_square = True
+            
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
     screen.blit(mesg, [screen_width/6, screen_height/3])
